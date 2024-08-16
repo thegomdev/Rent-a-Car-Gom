@@ -1,0 +1,10 @@
+Verificar se outras dependências também precisam ser atualizadas.
+npm outdated
+
+navigation
+npm install @react-navigation/native
+npm install @react-navigation/native-stack
+expo install react-native-screens react-native-safe-area-context
+
+Feather icons
+expo install @expo/vector-icons
