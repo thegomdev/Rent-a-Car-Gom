@@ -8,3 +8,6 @@ expo install react-native-screens react-native-safe-area-context
 
 Feather icons
 expo install @expo/vector-icons
+
+Firebase
+npm install firebase

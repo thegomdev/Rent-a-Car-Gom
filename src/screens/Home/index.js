@@ -16,7 +16,7 @@ const Home = () => {
       <View style={styles.bottons}>
 
         <View style={styles.vcal}>
-          <TouchableOpacity style={styles.viaturas} onPress={() => navigation.navigate('')}>
+          <TouchableOpacity style={styles.viaturas} onPress={() => navigation.navigate('Viaturas')}>
             <Text style={styles.tcalc}>Viaturas</Text>
           </TouchableOpacity>
         </View>

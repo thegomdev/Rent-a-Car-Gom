@@ -7,6 +7,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
 
 
+// Viaturas
+import Viaturas from './src/screens/Viaturas';
+import CadastroViaturas from './src/screens/Viaturas/CadastroViaturas';
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -19,6 +23,23 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        {/* Tela Viaturas */}
+        <Stack.Screen
+          name="Viaturas"
+          component={Viaturas}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="CadastroViaturas"
+          component={CadastroViaturas}
           options={{
             headerShown: false,
           }}
