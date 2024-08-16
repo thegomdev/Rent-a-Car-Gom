@@ -52,7 +52,7 @@ const CadastroViaturas = () => {
 
             <View style={styles.top}>
                 <TouchableOpacity style={styles.voltarTop}
-                    onPress={() => navigation.navigate('Home')}>
+                    onPress={() => navigation.goBack()}>
                     <Feather name="arrow-left" size={30} color={"#000"} />
                 </TouchableOpacity>
             </View>
