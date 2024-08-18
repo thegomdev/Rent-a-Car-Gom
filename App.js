@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import Toast from 'react-native-toast-message';
 
 // Home
 import Home from './src/screens/Home';
@@ -47,6 +47,9 @@ const App = () => {
 
 
       </Stack.Navigator>
+
+      {/* Toast para exibir notificações */}
+      <Toast ref={(ref) => Toast.setRef(ref)} />
     </NavigationContainer>
   );
 };

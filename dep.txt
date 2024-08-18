@@ -11,3 +11,6 @@ expo install @expo/vector-icons
 
 Firebase
 npm install firebase
+
+Notificações Toast
+npm install react-native-toast-message

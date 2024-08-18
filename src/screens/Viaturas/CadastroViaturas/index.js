@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert, ScrollView 
 import { Feather } from '@expo/vector-icons';
 import { database } from '../../../firebaseConnection';
 import { ref, push, set } from 'firebase/database';  // Importando as funções do firebase.
+import Toast from 'react-native-toast-message';
 
 const CadastroViaturas = () => {
     const navigation = useNavigation();
@@ -16,7 +17,7 @@ const CadastroViaturas = () => {
     async function handleCadastro() {
         // Validando para nenhum campo ficar vazio.
         if (matricula !== '' && modelo !== '' && km !== '' && ano !== '') {
-            try {
+
                 // Referência para o nó 'viaturas' no Realtime Database.
                 const cadastroViaturaRef = ref(database, 'viaturas');
                 const newCadastroViaturaRef = push(cadastroViaturaRef);  // Cria uma nova key.
@@ -29,17 +30,28 @@ const CadastroViaturas = () => {
                     ano: ano,
                 });
 
-                Alert.alert('Sucesso', 'Viatura cadastrada com sucesso!');
+                Toast.show({
+                    type: 'success',
+                    position: 'top',
+                    text1: 'Cadastro concluído!',
+                    visibilityTime: 1000,
+                });
+
                 setMatricula('');
                 setModelo('');
                 setKm('');
                 setAno('');
-            } catch (error) {
-                console.error("Erro ao cadastrar viatura:", error);
-                Alert.alert('Erro', 'Não foi possível cadastrar a viatura.');
-            }
+
+                navigation.goBack();
+
         } else {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+            // Usando Toast para exibir mensagem de erro.
+            Toast.show({
+                type: 'error',
+                position: 'top',
+                text1: 'Preencha todos os campos!',
+                visibilityTime: 1000,
+            });
         }
     }
 
@@ -194,7 +206,7 @@ const styles = StyleSheet.create({
 
     botoes: {
         width: '100%',
-        alignItems:'center',
+        alignItems: 'center',
     },
 
     button: {
